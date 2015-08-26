@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="media_module">
+<style>
+  .media_wrapper { height: 100%; width:100%; }
+  .media_wrapper video { height: auto; width:100%; }
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>myTV Stream</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="/third-party/angular/angular.min.js"></script>
+  <script src="/javascripts/media_core.js"></script>
+</head>
+<body ng-controller="mediaController">
+  <div class="media_wrapper">
+    <video id="browser-video" preload controls></video>
+  </div>
+</body>
+</html>

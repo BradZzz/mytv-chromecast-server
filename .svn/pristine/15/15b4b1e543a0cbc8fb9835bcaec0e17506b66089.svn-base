@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROMOJI.COM</title>
+  <link rel="icon" type="image/ico" href="/media/iconMain.ico"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <style>
+    .mainVideo { position: absolute; min-width:100%; min-height: 100%; height: auto; width: auto; pointer-events:none; }  
+    .overlay { font-family: 'Oswald', sans-serif; position: absolute; color: white; min-width:100%; min-height: 100%; height: auto; width: auto; 
+      display: table; text-align: center; font-size: xx-large; background: rgba(0,0,0,0.4); }
+    .overlay > p { display: table-cell; vertical-align: middle; }
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body>
+  <div class="chooser_window">
+    <video id="video_teaser" class="mainVideo" autoplay loop>
+      <source src="http://i.imgur.com/u52Cqzw.webm" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <p>You're going to go nuts over our new product!</p>
+    </div>
+  </div>
+</body>
+</html>

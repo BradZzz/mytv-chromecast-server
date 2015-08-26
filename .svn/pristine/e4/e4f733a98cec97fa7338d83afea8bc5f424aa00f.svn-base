@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="popup_media_module"><head><title>HLSProvider - Chromeless HLS Flash Player</title>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+
+<title>Google Cast Sample</title>
+
+<script src="/third-party/jquery/dist/jquery.min.js"></script>
+<script src="/third-party/angular/angular.min.js"></script>
+<script src="/third-party/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/third-party/canvasjs/canvasjs.min.js"></script>
+<script src="/third-party/underscore/underscore-min.js"></script>
+<script src="/libs/JSLoaderFragment.js"></script>
+<script src="/libs/JSLoaderPlaylist.js"></script>
+<script src="/libs/player/flowplayer-3.2.12.min.js"></script>
+<script src="/libs/player/flowplayer.ipad-3.2.12.min.js"></script>
+<script src="/javascripts/popup_core.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:700' rel='stylesheet' type='text/css'>
+
+<script>
+function getFlashMovieObject(movieName)
+{
+  if (window.document[movieName])
+  {
+      return window.document[movieName];
+  }
+  if (navigator.appName.indexOf("Microsoft Internet")==-1)
+  {
+    if (document.embeds && document.embeds[movieName])
+      return document.embeds[movieName];
+  }
+  else // if (navigator.appName.indexOf("Microsoft Internet")!=-1)
+  {
+    return document.getElementById(movieName);
+  }
+}
+
+</script>
+
+</head>
+
+
+
+
+<body id="plugins_httpstreamingm3u8" ng-controller="popup_mediaController">
+  <div style="margin: 30px auto; width: 660px; height: 350px;">
+    <a style="display: block; width: 660px; height: 350px;" id="player"></a>
+  </div>
+</body>
+</html>

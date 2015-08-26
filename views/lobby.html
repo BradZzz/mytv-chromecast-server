@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="chromecast_module">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>MyTV ChromeCast</title>
+
+	<!-- SCROLLS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<style>
+		html 								{ overflow-y:scroll; }
+		body 								{ padding-top:20px; }
+		
+		.chooser_window						{ margin: 0 1% 0 1%; }
+		.directory_holder					{ float:left; overflow-y: auto; width:28%; }
+		.directory_chooser					{ cursor:pointer;background:#f0f0f0; border: 2px solid #ecb939; outline: 1px solid #111111; color:#000000 }
+		
+		.file_holder						{ float:left; overflow-y: auto; width:68%; }
+		.file_chooser						{ background:#f0f0f0; border: 2px solid #ecb939; outline: 1px solid #111111; color:#000000 }
+	
+	</style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+	<script src="/javascripts/lobby_core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="chromecast_controller" data-ng-init="load()">
+	<div class="chooser_window">
+		<div class="directory_holder">
+			<div ng-show="folder" ng-repeat="folder in folders">
+				<div class="directory_chooser" ng-click="populate(folder)">{{ folder }}</div>
+			</div>
+		</div>
+		<div class="file_holder">
+			<div ng-repeat="file in files">
+				<!--<a href="/media/{{file}}" target="_blank">-->
+				<div class="file_chooser" ng-click="open_media(file)">{{ file }}</div>
+				<!--</a>-->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

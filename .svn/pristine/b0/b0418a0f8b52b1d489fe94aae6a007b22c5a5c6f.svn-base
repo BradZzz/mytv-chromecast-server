@@ -1,0 +1,10 @@
+var db = require('../db');
+var app = require('../app')(db);
+//var run_server = app.get('run_server');
+
+app.run_server(app.listen(app.get('port'), function(){
+  	console.log('Express server listening on port ' + app.get('port'));
+  	app.get('/', app.get('routes').index);
+    app.get('/test', app.get('routes').test);
+    app.get('/test2', app.get('routes').test2);
+}));

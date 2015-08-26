@@ -1,0 +1,228 @@
+<!--
+
+Copyright (C) 2013 Google Inc. All Rights Reserved.
+
+
+
+Licensed under the Apache License, Version 2.0 (the "License");
+
+you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at
+
+
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+
+
+Unless required by applicable law or agreed to in writing, software
+
+distributed under the License is distributed on an "AS IS" BASIS,
+
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+See the License for the specific language governing permissions and
+
+limitations under the License.
+
+-->
+
+<!DOCTYPE html>
+
+<html lang="en"  ng-app="popup_media_module">
+
+<head>
+
+<title>Google Cast Sample</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:700' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+
+<script type="text/javascript" src="/javascripts/sender.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+
+<script src="/third-party/angular/angular.min.js"></script>
+
+<script src="/third-party/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+<script src="/third-party/underscore/underscore-min.js"></script>
+
+<script src="/javascripts/popup_core.js"></script>
+
+
+
+</head>
+
+<body ng-controller="popup_mediaController">
+
+  <div class="control_overlay">
+
+    <input ng-model="current_url" size="80" value="{{ current_url}}" > <button ng-click="load(current_url)">Load</button><br>
+
+    <table border id="mediaInfo" width="640">
+
+    <tr>
+
+     <th colspan="2"><button ng-click="play()">Play</button></th>
+
+     <th colspan="2"><button ng-click="pause()">Pause</button></th>
+
+     <th colspan="2"><button ng-click="resume()">Resume</button></th>
+
+     <th colspan="3"><button ng-click="stop()">Stop</button></th>
+
+     </tr>
+
+     </table>
+
+  </div>
+
+  <div class="video_wrapper">
+
+    <object classid = "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="" id="mytv_streamer" width="640" height="360">
+
+      <param name="movie" value="HLSProviderChromeless.swf?inline=1" />
+
+      <param name="quality" value="autohigh" />
+
+      <param name="swliveconnect" value="true" />
+
+      <param name="allowScriptAccess" value="sameDomain" />
+
+      <param name="bgcolor" value="#0" />
+
+      <param name="allowFullScreen" value="true" />
+
+      <param name="wmode" value="window" />
+
+      
+
+      <embed src="/third-party/flashls/bin/release/flashlsChromeless.swf?inline=1" width="640" height="360" name="mytv_streamer" 
+
+      quality="autohigh" bgcolor="#0" align="middle" allowFullScreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" 
+
+      swliveconnect="true"  wmode="window" pluginspage="http://www.macromedia.com/go/getflashplayer" >
+
+      </embed>
+
+    </object>
+
+  </div>
+
+</body>
+
+<script type="text/javascript">
+
+function onManifest(duration) {
+
+$console.log("onManifest!")
+
+  $scope.play()
+
+}
+
+//This is when the media is loaded
+
+function onHLSReady(message) {
+
+$console.log(message)
+
+$console.log("onHLSReady!")
+
+$scope.load($scope.current_url)
+
+}
+
+function stop() {
+
+  $console.log("stop!")
+
+  $scope.load($scope.current_url)
+
+}
+
+
+
+function onComplete(message) {
+
+$console.log("onComplete")
+
+}
+
+function onError(code,url,message) {
+
+$console.log("onError")
+
+}
+
+
+
+function onFragmentLoaded(loadmetrics) {
+
+$console.log("onFragmentLoaded")
+
+}
+
+function onFragmentPlaying(playmetrics) {
+
+$console.log("onFragmentPlaying")
+
+}
+
+
+
+function onManifest(duration) {
+
+$console.log("onManifest")
+
+}
+
+
+
+function onPosition(timemetrics) {  
+
+$console.log("onPosition")
+
+}
+
+
+
+function onState(newState) {
+
+$console.log("onState")
+
+}
+
+
+
+function onSwitch(newLevel) {
+
+$console.log("onSwitch")
+
+}
+
+
+
+function onRequestResource0(URL) {
+
+$console.log("onRequestResource0")  
+
+}
+
+
+
+function onRequestResource1(URL) {
+
+$console.log("onRequestResource1")
+
+}
+
+</script>
+
+</html>
+

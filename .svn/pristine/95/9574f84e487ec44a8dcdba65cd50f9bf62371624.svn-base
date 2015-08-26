@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head><title>HLSProvider - Chromeless HLS Flash Player</title>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+
+<script src="/third-party/jquery/dist/jquery.min.js"></script>
+<script src="/third-party/angular/angular.min.js"></script>
+
+<style type="text/css">
+</style>
+</head>
+<body style="color: black; background-color: white;">
+<div class="ui_wrapper">
+	<button type="button" class="check_url">Check url</button>
+	<div class="info"></div>
+</div>
+
+<script type="text/javascript">
+function userSubmit() {
+   load(document.getElementById('userInput').value);
+}
+</script>
+
+</p><div style="text-align: left;">
+<script type="text/javascript">
+//njr0004@auburn.edu
+//12345dfl
+$( ".info" ).load( "http://mia01.superchillin.org/5508.php?file=5508&start=0&hd=0&auth=1478838765f54e640327d3976&type=flv&tv=0" );
+$('.check_url').click(function(){
+	var crossDomainUrl = 'http://mia01.superchillin.org/5508.php?file=5508&start=0&hd=0&auth=1478838765f54e640327d3976&type=flv&tv=0'
+	$.getJSON('http://anyorigin.com/get?url=' + crossDomainUrl + '&callback=?', function(data){
+		console.log(data)
+	    $('.info').html(data.contents);
+	});
+})
+
+</script>
+
+</body>
+</html>
